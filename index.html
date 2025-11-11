@@ -1,11 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIP - Lecture 2 Full</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+/* Accordion smooth animation */
+.accordion-content {
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  overflow: hidden;
+}
+</style>
 </head>
-<body>
-    
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+<header class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 text-center shadow-lg">
+    <h1 class="text-3xl font-bold">Digital Imaging Fundamentals - Lecture 2</h1>
+    <p class="mt-1 text-lg">Dr. Maie Mahmoud Aboghzalah</p>
+</header>
+
+<main class="max-w-6xl mx-auto p-6 space-y-6">
+
+    <!-- Accordion Section -->
+    <section>
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700">Lecture Content</h2>
+        <div id="accordion" class="space-y-3">
+
+            <!-- Human Visual System -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-purple-100 hover:bg-purple-200 focus:outline-none font-medium accordion-button">
+                    Human Visual System
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>The human visual system is the best model for understanding how images form. Knowledge of this helps in processing digital images.</p>
+                    <ul class="list-disc ml-5">
+                        <li>The lens focuses light onto the retina.</li>
+                        <li>Retina has cones (6-7 million, color sensitive) and rods (75-150 million, low light sensitive).</li>
+                        <li>Cones concentrated at center, rods distributed over retina surface.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Image Formation in the Eye -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-purple-100 hover:bg-purple-200 focus:outline-none font-medium accordion-button">
+                    Image Formation in the Eye
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Unlike cameras with fixed lenses, the human eye adjusts focus using muscles that change lens shape.</p>
+                </div>
+            </div>
+
+            <!-- Simultaneous Contrast & Optical Illusions -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-purple-100 hover:bg-purple-200 focus:outline-none font-medium accordion-button">
+                    Simultaneous Contrast & Optical Illusions
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Simultaneous contrast: perceived brightness depends on background, not only intensity.</p>
+                    <p>Optical illusions: eye fills in missing info or misinterprets geometry.</p>
+                </div>
+            </div>
+
+            <!-- Image Acquisition -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-purple-100 hover:bg-purple-200 focus:outline-none font-medium accordion-button">
+                    Image Acquisition & Formation
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Images result from illumination and object reflection. Reflectance r(x,y) bounded between 0 and 1.</p>
+                    <p>Image function: f(x,y) = i(x,y) * r(x,y)</p>
+                </div>
+            </div>
+
+            <!-- Sampling & Quantization -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-purple-100 hover:bg-purple-200 focus:outline-none font-medium accordion-button">
+                    Image Sampling & Quantization
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <ul class="list-disc ml-5">
+                        <li>Sampling: digitizing coordinates.</li>
+                        <li>Quantization: digitizing amplitude (intensity levels).</li>
+                        <li>Output example: continuous image → sampled & quantized digital image.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Representation & Resolution -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-purple-100 hover:bg-purple-200 focus:outline-none font-medium accordion-button">
+                    Image Representation, Spatial & Intensity Resolution
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Dynamic range: ratio of max measurable intensity to min detectable intensity.</p>
+                    <p>Spatial resolution: smallest detail measurable (dpi, line pairs).</p>
+                    <p>Intensity resolution: smallest discernible change in intensity, depends on bits per pixel.</p>
+                </div>
+            </div>
+
+            <!-- Pixels Relationship & Mathematical Tools -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-purple-100 hover:bg-purple-200 focus:outline-none font-medium accordion-button">
+                    Pixel Relationships & Mathematical Tools
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Neighborhoods: 4-neighbors, diagonal neighbors, 8-neighbors.</p>
+                    <p>Adjacency: in binary or gray images.</p>
+                    <p>Mathematical tools: array operations, linear/non-linear operators, arithmetic, set, logical, spatial operations.</p>
+                </div>
+            </div>
+
+            <!-- Image Transforms -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-purple-100 hover:bg-purple-200 focus:outline-none font-medium accordion-button">
+                    Image Transforms
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>2D transforms: f(x,y) → transform domain r(x,y,u,v). Inverse transform recovers f(x,y).</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section>
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700">Quiz</h2>
+        <div class="bg-white p-6 rounded shadow-lg space-y-5">
+
+            <!-- Question Example -->
+            <div class="quiz-question p-4 border rounded shadow-sm">
+                <p class="mb-2 font-medium">1. Cones in the retina are sensitive to color. (True/False)</p>
+                <div class="flex gap-3">
+                    <button class="quiz-btn px-4 py-2 rounded bg-purple-600 text-white" data-answer="true">True</button>
+                    <button class="quiz-btn px-4 py-2 rounded bg-gray-300" data-answer="false">False</button>
+                </div>
+                <div class="quiz-result mt-2 font-semibold"></div>
+            </div>
+
+            <div class="quiz-question p-4 border rounded shadow-sm">
+                <p class="mb-2 font-medium">2. Image quantization digitizes the spatial coordinates of an image. (True/False)</p>
+                <div class="flex gap-3">
+                    <button class="quiz-btn px-4 py-2 rounded bg-purple-600 text-white" data-answer="false">True</button>
+                    <button class="quiz-btn px-4 py-2 rounded bg-gray-300" data-answer="true">False</button>
+                </div>
+                <div class="quiz-result mt-2 font-semibold"></div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<script>
+    // Accordion Animation
+    document.querySelectorAll('.accordion-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const content = btn.nextElementSibling;
+            if(content.classList.contains('max-h-0')) {
+                content.classList.remove('max-h-0','p-0');
+                content.classList.add('p-4');
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+                content.classList.add('max-h-0','p-0');
+                content.classList.remove('p-4');
+            }
+        });
+    });
+
+    // Quiz Logic
+    document.querySelectorAll('.quiz-question').forEach(q => {
+        q.querySelectorAll('.quiz-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const correct = btn.dataset.answer === "true";
+                const resultDiv = q.querySelector('.quiz-result');
+                if(correct){
+                    resultDiv.textContent = "✅ Correct!";
+                    resultDiv.classList.add('text-green-600');
+                    resultDiv.classList.remove('text-red-600');
+                } else {
+                    resultDiv.textContent = "❌ Incorrect!";
+                    resultDiv.classList.add('text-red-600');
+                    resultDiv.classList.remove('text-green-600');
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
